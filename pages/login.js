@@ -30,7 +30,7 @@ export default function LogIn() {
     <div className={styles.container}>
       <h1>Implementando firebase</h1>
       <form onSubmit={loginUser}>
-        <legend>Sign in with email/password</legend>
+        <legend>Log in with email/password</legend>
         <input
           id="email"
           type="email"

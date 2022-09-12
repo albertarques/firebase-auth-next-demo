@@ -14,9 +14,14 @@ function Nav() {
       );
     } else {
       return (
-        <button>
-          <Link href={"/login"}>Login</Link>
-        </button>
+        <>
+          <button>
+            <Link href={"/login"}>Login</Link>
+          </button>
+          <button>
+            <Link href={"/register"}>Register</Link>
+          </button>
+        </>
       );
     }
   }
