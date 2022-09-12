@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import Nav from "../components/Nav";
 import { app } from "../lib/firebase";
 

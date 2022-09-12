@@ -1,6 +1,6 @@
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { auth } from "./_app";
+import { auth, user } from "./_app";
 
 export default function Home() {
   function ifIsLoggedShowName() {
