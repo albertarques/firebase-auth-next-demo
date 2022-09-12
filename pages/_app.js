@@ -1,7 +1,18 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Nav from "../components/Nav";
+import { app } from "../lib/firebase";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const auth = getAuth(app);
+console.log(auth);
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Nav />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export { auth };
