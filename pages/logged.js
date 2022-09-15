@@ -1,5 +1,4 @@
 import styles from "../styles/Home.module.css";
-
 import { auth } from "./_app";
 
 export default function Logged() {
