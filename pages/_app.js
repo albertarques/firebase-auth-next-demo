@@ -1,10 +1,5 @@
 import "../styles/globals.css";
-import { getAuth } from "firebase/auth";
 import Nav from "../components/Nav";
-import { app } from "../lib/firebase";
-
-const auth = getAuth(app);
-console.log(auth);
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -14,5 +9,3 @@ export default function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export { auth };

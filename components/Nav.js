@@ -1,25 +1,27 @@
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { auth } from "../pages/_app";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { logInUser, logInUserPreconf, logOut } from "../lib/Firebase";
+import { auth } from "../lib/Firebase";
 
 function Nav() {
-  const user = auth.currentUser;
+  const [user] = useAuthState(auth);
 
-  function isUserLogged(user) {
+  function isUserLogged() {
     if (user) {
-      return (
-        <button>
-          <Link href={"/logout"}>LogOut</Link>
-        </button>
-      );
-    } else {
+      return <button onClick={logOut}>Log Out</button>;
+    }
+  }
+
+  function isUserLogOut() {
+    if (!user) {
       return (
         <>
           <button>
-            <Link href={"/login"}>Login</Link>
+            <Link href={"/register"}>Register</Link>
           </button>
           <button>
-            <Link href={"/register"}>Register</Link>
+            <Link href={"/login"}>Login</Link>
           </button>
         </>
       );
@@ -31,13 +33,9 @@ function Nav() {
       <button>
         <Link href={"/"}>Home</Link>
       </button>
-      <button>
-        <Link href={"/logged"}>Logged</Link>
-      </button>
-      <button>
-        <Link href={"/restricted/restricted1"}>Restricted1</Link>
-      </button>
-      {isUserLogged(user)}
+      {isUserLogged()}
+      {isUserLogOut()}
+      <button onClick={logInUserPreconf}>Login Preconfigured</button>
     </div>
   );
 }
